@@ -1,0 +1,32 @@
+//
+//  Prefix header
+//
+//  The contents of this file are implicitly included at the beginning of every source file.
+//
+
+#import <Availability.h>
+#import "BaseViewController.h"
+#import "CoreData+MagicalRecord.h"
+#ifndef __IPHONE_5_0
+#warning "This project uses features only available in iOS SDK 5.0 and later."
+#endif
+
+#ifdef __OBJC__
+    #import <UIKit/UIKit.h>
+    #import <Foundation/Foundation.h>
+    #import "constants.h"
+    #import "SVStatusHUD.h"
+    #import "PublicUtility.h"
+    #import "ImageUtility.h"
+    #import "TypeConvert.h"
+    #import "GlobalVar.h"
+    #import "AppDelegate.h"
+    #import "DeviceCapabilityHelper.h"
+#endif
+#define Screenheight ([UIScreen mainScreen].bounds.size.height)
+#define Screenwidth ([UIScreen mainScreen].bounds.size.width)
+
+#define IOS7                ([[[UIDevice currentDevice] systemVersion] doubleValue] >= 7.0 ? YES : NO )
+#define IPHONE5             ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(640, 1136), [[UIScreen mainScreen] currentMode].size) : NO)
+
+#define LoginedNotifiction @"LOGIN"
